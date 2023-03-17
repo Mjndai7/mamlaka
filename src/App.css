@@ -7,11 +7,11 @@ body {
   /* Color */
   --main-bg-color: #f4f4f4;
   --main-dark-bg: #002333;
-  --main-green-color: #00ff84;
+  --main-purple-color: #430743;
   --main-white-color: #fff;
   --main-grey-color: #a9a9a9;
   --main-blue-color: #14b4fe;
-  --fill-green-color: #00ff84;
+  --fill-purple-color: #430743;
   /* Others */
   --card-br: 20px;
   --default-margin-spacing: 30px;

@@ -35,6 +35,11 @@ class purchaserShippingDetail(models.Model):
         KISUMU = 'Kisumu'
         MACHAKOS = 'Machakos'
         KIAMBU = 'Kiambu'
+        NAKURU = 'Nakuru'
+        BUSIA = 'Busia'
+        KAKAMEGA ='Kakamega'
+        NYERI = 'Nyeri'
+
 
     frequent_customer = models.BooleanField(default=False)
     owner = models.CharField(max_length=50)
@@ -78,6 +83,7 @@ class paymentInvoice(models.Model):
         BANK = 'Bank'
         CHEQUE = 'Cheque'
         CASH = 'Cash'
+        CRYPTO = 'Crypto'
 
     invoiceNo = models.CharField(max_length=50, unique=True, default=increment_invoice_number)
     invoiceOwner = models.ForeignKey(Purchaser, on_delete=models.CASCADE, related_name="invoice_detail")

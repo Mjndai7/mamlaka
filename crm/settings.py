@@ -1,4 +1,4 @@
-import django_heroku
+import django_on_heroku
 import os
 from datetime import timedelta
 
@@ -15,7 +15,7 @@ SECRET_KEY = '(-gj^oigvfrdcf!=w#)io(#@&yj_jo7p%==4i-xy#(1a-bo&cw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic', # Heroku
     'django.contrib.staticfiles',
-
     'corsheaders',
     'rest_framework',
     'djoser',
@@ -53,6 +52,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'crm.urls'
 
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000'
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -76,11 +79,8 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'crm',
-        'USER': 'postgres',
-        'PASSWORD': 'shadow',
-        'HOST': 'localhost'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -128,7 +128,7 @@ USE_TZ = True
 
 
 # Configure app for Heroku deployment
-django_heroku.settings(locals())
+django_on_heroku .settings(locals())
 
 
 STATIC_URL = '/static/'

@@ -2,7 +2,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework import permissions
 from rest_framework import mixins
 from rest_framework import generics
-from django.shortcuts import get_object_or_404
+from django.shortcuts import render
 
 from .models import Purchaser, purchaserShippingDetail, paymentInvoice
 from .serializers import purchaserSerializer, purchaserShippingDetailSerializer, paymentInvoiceSerializer
